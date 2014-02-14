@@ -1,6 +1,5 @@
 Dps::Application.routes.draw do
-
-  get "users/new"
+  resources :users
   root "pages#home"
 
   match '/help',    to: 'pages#help',    via: 'get'

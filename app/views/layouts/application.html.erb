@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag "application", media: "all",
-                                           "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+    <div class="wrapper">
+      <title>Daversa Partners | <%= yield(:title) %></title>
+        <%= render 'layouts/header' %>
+          <div class="container">
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+            <%= yield %>
+          </div>
     </div>
+ 
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/bootstrap-transition.js"></script>
+  <script src="../assets/js/bootstrap-alert.js"></script>
+  <script src="../assets/js/bootstrap-modal.js"></script>
+  <script src="../assets/js/bootstrap-dropdown.js"></script>
+  <script src="../assets/js/bootstrap-scrollspy.js"></script>
+  <script src="../assets/js/bootstrap-tab.js"></script>
+  <script src="../assets/js/bootstrap-tooltip.js"></script>
+  <script src="../assets/js/bootstrap-popover.js"></script>
+  <script src="../assets/js/bootstrap-button.js"></script>
+  <script src="../assets/js/bootstrap-collapse.js"></script>
+  <script src="../assets/js/bootstrap-carousel.js"></script>
+  <script src="../assets/js/bootstrap-typeahead.js"></script>
+
   </body>
 </html>

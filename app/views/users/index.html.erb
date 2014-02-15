@@ -1,6 +1,12 @@
 <% provide(:title, 'Our Team') %>
 <h1>Our Team</h1>
+<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Title</th>
+	</thead>
 
-<ul class="users">
-      <%= render @users %>
-</ul>
+	<tbody>
+		<%= render @users %>
+	</tbody>
+</table>

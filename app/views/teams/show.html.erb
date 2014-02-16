@@ -1,5 +1,6 @@
-<% provide(:title, 'Our Team') %>
-<h1>Company List</h1>
+<% provide(:title, @team.name) %>
+<h1><%= @team.name %>'s Team</h1>
+
 <table class="table table-striped">
 	<thead>
 		<th>Name</th>

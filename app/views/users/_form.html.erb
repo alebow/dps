@@ -5,7 +5,8 @@
 		  <%= render 'shared/error_messages' %>
 		  <%= f.input :name %> 
 		  <%= f.input :email %>
-		  <%#= f.association :team, as: :radio_buttons %>
+		  <%= f.input :title %>
+		  <%#= f.association :team, as: :select, label: 'Partner' %>
 		  <%= f.input :password %>
 		  <%= f.input :password_confirmation, label: 'Password Confirmation' %>
 		  <%= f.button :submit, label: 'Update', class: "btn btn-primary" %>

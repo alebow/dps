@@ -1,6 +1,8 @@
 Dps::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :teams, only: [:index, :show]
+  resources :clients
 
   root "pages#home"
 

@@ -1,0 +1,25 @@
+<% provide(:title, @search.position) %>
+<div class="well">
+	<center><h1><%= link_to @search.client.name, @client %> - <%= @search.position %></h1></center>
+</div>
+<!--<button class="btn btn-danger pull-right">Closeout</button>-->
+
+<!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn btn-danger pull-right" data-toggle="modal">Close Search</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Close Search</h3>
+  </div>
+  <div class="modal-body">
+    	<%= simple_form_for(@search, :html => { class: 'form-horizontal' }) do |f| %>
+		  <%= f.input :close_date, as: :date %>
+		  <%= f.button :submit, label: 'Close Search', class: "btn btn-danger pull-right" %>
+		<% end %>
+    <button class="btn pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+</div>
+
+

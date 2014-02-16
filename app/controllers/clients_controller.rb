@@ -21,15 +21,18 @@ class ClientsController < ApplicationController
 
 	def show
   	@client = Client.find(params[:id])
+    @searches = @client.searches
+    @closed = @searches.where(:closed => true)
   end
 
   def edit
-    #@client = Client.find(params[:id])
+    @client = Client.find(params[:id])
   end
 
   def update
-    if @pin.update(pin_params)
-      redirect_to @pin, notice: 'Pin was successfully updated.'
+    @client = Client.find(params[:id])
+    if @client.update(client_params)
+      redirect_to @client, notice: 'Client was successfully updated.'
     else
       render action: 'edit'
     end

@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215230105) do
+ActiveRecord::Schema.define(version: 20140216063133) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "searches", force: true do |t|
+    t.string   "position"
+    t.integer  "client_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "closed",     default: false
+    t.date     "close_date"
+  end
+
+  add_index "searches", ["client_id"], name: "index_searches_on_client_id"
+  add_index "searches", ["user_id"], name: "index_searches_on_user_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"

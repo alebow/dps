@@ -1,8 +1,16 @@
 Dps::Application.routes.draw do
+  get "searches/new"
+  get "searches/create"
+  get "searches/show"
+  get "searches/edit"
+  get "searches/update"
+  get "searches/destroy"
+  get "searches/index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :teams, only: [:index, :show]
   resources :clients
+  resources :searches
 
   root "pages#home"
 

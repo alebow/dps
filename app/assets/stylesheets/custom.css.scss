@@ -2,6 +2,106 @@
 
 /* mixins, variables, etc. */
 
+
+
+/*
+ *= require bootstrap
+ *= require google-code-prettify
+*/
+
+body {
+  padding-top: 60px;
+}
+
+.btn {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.alert p.error_notification {
+  margin-bottom: 0;
+}
+
+div.well {
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+pre { display: none; }
+
+article .content {
+  margin: 10px 0;
+}
+
+#article-comments {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+#comments {
+  margin-bottom: 10px;
+}
+
+#article-comments form {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+#article-comments .form-actions {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.form-actions {
+  height: 30px;
+}
+
+.navbar .brand {
+  float: left;
+  padding-right: 0;
+}
+
+.form-vertical .boolean .controls {
+  display: inline-block;
+}
+
+.footer {
+  padding: 70px 0;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
 $grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
@@ -10,86 +110,7 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
-/* universal */
 
-html {
-  overflow-y: scroll;
-}
-
-body {
-  height: 100%;
-  padding-top: 60px;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-/* Wrapper for page content to push down footer */
-  #wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    /* Negative indent footer by it's height */
-    margin: 0 auto -60px;
-  }
 
 /* miscellaneous */
 
@@ -101,17 +122,17 @@ p {
   @include box_sizing;
 }
 
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
 }
 
 #error_explanation {
@@ -125,19 +146,4 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
-}
-
-/* Users index */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
-    }
-  }
 }

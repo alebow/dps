@@ -1,15 +1,36 @@
+
+
 <% provide(:title, @team.name) %>
-<h1><%= @team.name %>'s Team</h1>
-
-<table class="table table-striped">
-	<thead>
-		<th>Name</th>
-		<th>Email</th>
-		<th>Title</th>
-		<th>Team</th>
-	</thead>
-
-	<tbody>
-		<%= render @users %>
-	</tbody>
-</table>
+<h1><%= @team.name %></h1>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Team Members</a></li>
+    <li><a href="#tab2" data-toggle="tab">Team Searches (<%= @team.searches.count %>)</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <table class="table table-striped">
+				<thead>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Title</th>
+				</thead>
+				<tbody>
+					<%= render @users %>
+				</tbody>
+			</table>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <table class="table table-striped">
+				<thead>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Date Opened</th>
+				</thead>
+				<tbody>
+					<%= render @searches %>
+				</tbody>
+			</table>
+    </div>
+  </div>
+</div>

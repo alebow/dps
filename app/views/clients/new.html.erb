@@ -1,13 +1,11 @@
 <% provide(:title, 'Add Client') %>
 <h1>Add a New Client</h1>
-
-<div class="row">
-  <div class="span6">
-    <%= simple_form_for(@client, :html => { class: 'form-horizontal' }) do |f| %>
-    <%#= render 'shared/error_messages' %>
-      <%= f.input :name %>
-      <%= f.button :submit, label: 'Add', class: "btn btn-primary" %>
-    <% end %>
-
-  </div>
-</div>
+    <%= simple_form_for(@client) do |f| %>
+      <%= f.input :name, :wrapper => :prepend, :label => false do %>
+    	<%= content_tag :span, "Client Name", :class => "add-on" %>
+    	<%= f.input_field :name %>
+	  <% end %>
+  	  <div class="well">
+      	<%= f.button :submit, label: 'Add', class: "btn btn-primary" %>
+    	<% end %>
+    </div>

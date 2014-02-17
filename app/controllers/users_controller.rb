@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @searches= @user.searches
+    @searches= @user.searches.where(:closed => false)
+    @closed = User.find(params[:id]).searches.where(:closed => true)
   end
 
   def create

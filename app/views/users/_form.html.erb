@@ -1,16 +1,24 @@
-<div class="row">
-    <div class="span6">
-
-		<%= simple_form_for(@user, :html => { class: 'form-horizontal' }) do |f| %>
-		  <%= render 'shared/error_messages' %>
-		  <%= f.input :name %> 
-		  <%= f.input :email %>
-		  <%= f.input :title %>
-		  <%#= f.association :team, as: :select, label: 'Partner' %>
-		  <%= f.input :password %>
-		  <%= f.input :password_confirmation, label: 'Password Confirmation' %>
-		  <%= f.button :submit, label: 'Update', class: "btn btn-primary" %>
-		<% end %>
-
-	</div>
-</div>
+<%= simple_form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.input :name, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Name", :class => "add-on" %>
+    <%= f.input_field :name %>
+  <% end %>
+  <%= f.input :email, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Email", :class => "add-on" %>
+    <%= f.input_field :email %>
+  <% end %>
+  <%= f.input :title, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Title", :class => "add-on" %>
+    <%= f.input_field :title %>
+  <% end %>
+  <%= f.input :password, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Password", :class => "add-on" %>
+    <%= f.input_field :password %>
+  <% end %>
+  <%= f.input :password_confirmation, :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Password Confirmation", :class => "add-on" %>
+    <%= f.input_field :password_confirmation %>
+  <% end %>
+  <%= f.button :submit, label: 'Update', class: "btn btn-primary" %>
+<% end %>

@@ -1,11 +1,10 @@
-
-
-<% provide(:title, @team.name) %>
-<h1><%= @team.name %></h1>
+<% provide(:title, @team.nickname) %>
+<h1><%= @team.nickname %></h1>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Team Members</a></li>
-    <li><a href="#tab2" data-toggle="tab">Team Searches (<%= @team.searches.count %>)</a></li>
+    <li><a href="#tab2" data-toggle="tab">Active Searches (<%= @searches.count %>)</a></li>
+    <li><a href="#tab3" data-toggle="tab">Past Searches (<%= Team.find(params[:id]).searches.where(:closed => true).count %>)</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
@@ -23,12 +22,22 @@
     <div class="tab-pane" id="tab2">
       <table class="table table-striped">
 				<thead>
-					<th>Name</th>
+					<th>Client</th>
 					<th>Position</th>
-					<th>Date Opened</th>
 				</thead>
 				<tbody>
 					<%= render @searches %>
+				</tbody>
+			</table>
+    </div>
+    <div class="tab-pane" id="tab3">
+      <table class="table table-striped">
+				<thead>
+					<th>Client</th>
+					<th>Position</th>
+				</thead>
+				<tbody>
+					<%= render @closed %>
 				</tbody>
 			</table>
     </div>

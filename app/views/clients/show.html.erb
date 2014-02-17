@@ -2,8 +2,8 @@
 <h1><%= @client.name %></h1>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Open Searches (<%= @client.searches.count %>)</a></li>
-    <li><a href="#tab2" data-toggle="tab">Past Searches (<%= @closed.count %>)</a></li>
+    <li class="active"><a href="#tab1" data-toggle="tab">ActiveSearches (<%= @searches.count %>)</a></li>
+    <li><a href="#tab2" data-toggle="tab">Past Searches (<%= Client.find(params[:id]).searches.where(:closed => true).count %>)</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
@@ -11,7 +11,6 @@
 				<thead>
 					<th>Client</th>
 					<th>Position</th>
-					<th>Date Opened</th>
 				</thead>
 				<tbody>
 					<%= render @searches %>
@@ -21,8 +20,8 @@
     <div class="tab-pane" id="tab2">
       <table class="table table-striped">
 				<thead>
+					<th>Client</th>
 					<th>Position</th>
-					<th>Date Opened</th>
 				</thead>
 				<tbody>
 					<%= render @closed %>

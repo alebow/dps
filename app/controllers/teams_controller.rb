@@ -8,7 +8,8 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@users = @team.users
-		@searches = @team.searches
+		@searches = @team.searches.where(:closed => false)
+		@closed = Team.find(params[:id]).searches.where(:closed => true)
 	end
 
 end

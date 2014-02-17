@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
 	before_action :signed_in_user
+  # before_save { self.name = name.downcase }
 
   def new
     @client = Client.new
@@ -21,8 +22,8 @@ class ClientsController < ApplicationController
 
 	def show
   	@client = Client.find(params[:id])
-    @searches = @client.searches
-    @closed = @searches.where(:closed => true)
+    @searches = @client.searches.where(:closed => false)
+    @closed = Client.find(params[:id]).searches.where(:closed => true)
   end
 
   def edit

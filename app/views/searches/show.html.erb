@@ -1,8 +1,33 @@
 <% provide(:title, @search.position) %>
-<div class="well">
-	<center><h1><%= link_to @search.client.name, @client %> - <%= @search.position %></h1></center>
+<% if @search.closed? %>
+  <div class="well well-warning">
+  	<center><h1><%= link_to @search.client.name, @client %> - <%= @search.position %> (Closed)</h1></center>
+  </div>
+
+  <!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn btn-primary pull-right" data-toggle="modal">Edit Search</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Edit Search</h3>
+  </div>
+  <div class="modal-body">
+      <%= simple_form_for(@search, :html => { class: 'form-horizontal' }) do |f| %>
+      <%= f.input :closed, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :close_date, as: :date %>
+      <%= f.button :submit, label: 'Close Search', class: "btn btn-danger pull-right" %>
+    <% end %>
+    <button class="btn pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
 </div>
-<!--<button class="btn btn-danger pull-right">Closeout</button>-->
+
+<% else %>
+
+<div class="well">
+    <center><h1><%= link_to @search.client.name, @client %> - <%= @search.position %></h1></center>
+</div>
 
 <!-- Button to trigger modal -->
 <a href="#myModal" role="button" class="btn btn-danger pull-right" data-toggle="modal">Close Search</a>
@@ -15,11 +40,15 @@
   </div>
   <div class="modal-body">
     	<%= simple_form_for(@search, :html => { class: 'form-horizontal' }) do |f| %>
+      <%= f.input :closed, as: :boolean, checked_value: true, unchecked_value: false %>
 		  <%= f.input :close_date, as: :date %>
 		  <%= f.button :submit, label: 'Close Search', class: "btn btn-danger pull-right" %>
 		<% end %>
     <button class="btn pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
   </div>
 </div>
+
+<% end %>
+
 
 

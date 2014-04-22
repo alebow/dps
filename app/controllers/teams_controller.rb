@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
 		@users = @team.users
 		@searches = @team.searches.where(:closed => false)
 		@closed = Team.find(params[:id]).searches.where(:closed => true)
+		@revenue_quota = Team.find(params[:id]).revenue_quota
 	end
 
 end

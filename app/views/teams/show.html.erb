@@ -2,6 +2,28 @@
 <div class="well">
   	<center><h1><%= @team.nickname %></h1></center>
 </div>
+<div class="row">
+	<div class="col-md-3">
+		<div class="well">
+			<center><h3>Revenue Quota:</h3><h4><%= @team.revenue_quota %></h4>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<center><h3>YTD Revenue:</h3><h4>$1</h4>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<center><h3>+/-</h3><h4>$1</h4>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="well">
+			<center><h3>DP YTD Revenue:</h3><h4>$9,250,593</h4>
+		</div>
+	</div>
+</div>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Team Members</a></li>

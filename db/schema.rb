@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217171043) do
+ActiveRecord::Schema.define(version: 20140422162037) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140217171043) do
     t.datetime "updated_at"
     t.boolean  "closed",     default: false
     t.datetime "close_date"
-    t.integer  "fee"
+    t.float    "fee"
     t.boolean  "split",      default: false
   end
 
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140217171043) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
+    t.float    "revenue_quota"
   end
 
   create_table "users", force: true do |t|
@@ -48,9 +49,10 @@ ActiveRecord::Schema.define(version: 20140217171043) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "partner",         default: false
+    t.boolean  "partner",          default: false
     t.string   "title"
     t.integer  "team_id"
+    t.float    "personal_revenue"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

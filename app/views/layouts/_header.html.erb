@@ -1,41 +1,40 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a>
-      <%= link_to "Daversa Partners", root_path, class: "brand" %>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li><%= link_to 'Our Team', users_path %></li>
-          <li><%= link_to 'Locations', locations_path %></li>
-          <!--<li><%= link_to 'About', about_path %></li>-->
-          <li><%= link_to 'Searches', searches_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Add Search', new_search_path %></li>
-              <li><%= link_to 'Add Client', new_client_path %></li>
-              <li><%= link_to 'Something Else Here', "#" %></li>
-              <li class="divider"></li>
-              <li class="nav-header">Nav header</li>
-              <li><%= link_to 'Separated Link', "#" %></li>
-              <li><%= link_to 'One More Separated Link', "#" %></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!--/.nav-collapse -->
-        <ul class="nav pull-right">
-            <% if signed_in? %>
-              <li><%= link_to "My Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
-            <% else %>
-              <li><%= link_to "Login", signin_path %></li>
-            <% end %>
-        </ul>
+      </button>
+      <%= link_to "Daversa Partners", root_path, class: "navbar-brand" %>
     </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Our Team', users_path %></li>
+        <li><%= link_to 'Locations', locations_path %></li>
+        <li><%= link_to 'Searches', searches_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Add Search', new_search_path %></li>
+            <li><%= link_to 'Add Client', new_client_path %></li>
+            <li><%= link_to 'Something Else Here', '#' %></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><%= link_to 'Something Else Here', '#' %></li>
+            <li><%= link_to 'Something Else Here', '#' %></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li><%= link_to current_user.name, current_user %></li>
+          <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+        <% else %>
+          <li><%= link_to "Login", signin_path %></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
   </div>
 </div>

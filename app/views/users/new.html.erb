@@ -1,25 +1,13 @@
 <% provide(:title, 'Sign Up') %>
 <h1>Create an Account</h1>
-    <%= simple_form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-        <%= f.input :name, :wrapper => :prepend, :label => false do %>
-        <%= content_tag :span, "Name", :class => "add-on" %>
-        <%= f.input_field :name %>
-      <% end %>
-        <%= f.input :email, :wrapper => :prepend, :label => false do %>
-        <%= content_tag :span, "Email", :class => "add-on" %>
-        <%= f.input_field :email %>
-      <% end %>
-        <%= f.association :team, label_method: :id %>
-        <%= f.input :password, :wrapper => :prepend, :label => false do %>
-        <%= content_tag :span, "Password", :class => "add-on" %>
-        <%= f.input_field :password %>
-      <% end %>
-        <%= f.input :password_confirmation, :wrapper => :prepend, :label => false do %>
-        <%= content_tag :span, "Password Confirmation", :class => "add-on" %>
-        <%= f.input_field :password_confirmation %>
-      <% end %>
-      <div class="well">
-        <%= f.button :submit, label: 'Create', class: "btn btn-primary" %>
-      <% end %>
-      </div>
+  <%= simple_form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.association :team, label_method: :id %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+    <div class="well">
+      <%= f.button :submit, label: 'Create', class: "btn btn-primary" %>
+    </div>
+  <% end %>

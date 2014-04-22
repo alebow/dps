@@ -23,6 +23,8 @@ class SearchesController < ApplicationController
 
   def edit
     @search = Search.find(params[:id])
+    @name = @search.client.name
+    @position = @search.position
   end
 
   def update
@@ -48,7 +50,7 @@ class SearchesController < ApplicationController
   private
 
     def search_params
-      params.require(:search).permit(:position, :user_id, :client_id, :closed, :close_date)
+      params.require(:search).permit(:position, :user_id, :client_id, :closed, :close_date, :fee)
     end
 
 end

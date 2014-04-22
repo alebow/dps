@@ -2,11 +2,9 @@
 <h1>Add a New Search</h1>
 	<%= simple_form_for(@search) do |f| %>
 	  <%= f.association :client, collection: Client.all(order: 'name'), label: 'Client' %>
-	  <%= f.input :position, :wrapper => :prepend, :label => false do %>
-    	<%= content_tag :span, "Position", :class => "add-on" %>
-    	<%= f.input_field :position%>
-  	  <% end %>
+  	<%= f.input :position %>
+		<%= f.input :fee %>
 	  <div class="well">
-  	<%= f.button :submit, label: 'Update', class: "btn btn-primary" %> Don't see your client? <%= link_to 'Add a new client.', new_client_path %>
-	<% end %>
-	</div>
+  		<%= f.submit label: 'Create', class: "btn btn-primary" %> Don't see your client? <%= link_to 'Add a new client.', new_client_path %>
+			<% end %>
+		</div>

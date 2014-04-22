@@ -1,5 +1,9 @@
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
-  <center><h1>Welcome to Daversa Partners</h1>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></center>
+
+	<% if signed_in? %>
+		<center><h1>Welcome to Daversa Partners!</h1>
+    <% else %>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></center>
+  <% end %>
 </div>

@@ -1,8 +1,5 @@
 <%= simple_form_for(@client) do |f| %>
-  <%= f.input :name, :wrapper => :prepend, :label => false do %>
-		<%= content_tag :span, "Client Name", :class => "add-on" %>
-		<%= f.input_field :name %>
-	<% end %>
+  <%= f.input :name %>
 	<div class="well">
   	<%= f.button :submit, label: 'Update', class: "btn btn-primary" %>
   </div>

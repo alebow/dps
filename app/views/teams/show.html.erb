@@ -1,5 +1,7 @@
 <% provide(:title, @team.nickname) %>
-<h1><%= @team.nickname %></h1>
+<div class="well">
+  	<center><h1><%= @team.nickname %></h1></center>
+</div>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Team Members</a></li>
@@ -11,8 +13,8 @@
       <table class="table table-striped">
 				<thead>
 					<th>Name</th>
-					<th>Email</th>
 					<th>Title</th>
+					<th>Team</th>
 				</thead>
 				<tbody>
 					<%= render @users %>
@@ -24,6 +26,7 @@
 				<thead>
 					<th>Client</th>
 					<th>Position</th>
+					<th>Fee</th>
 				</thead>
 				<tbody>
 					<%= render @searches %>
@@ -35,6 +38,7 @@
 				<thead>
 					<th>Client</th>
 					<th>Position</th>
+					<th>Fee</th>
 				</thead>
 				<tbody>
 					<%= render @closed %>

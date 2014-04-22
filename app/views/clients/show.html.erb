@@ -1,5 +1,7 @@
 <% provide(:title, @client.name) %>
-<h1><%= @client.name %></h1>
+<div class="well">
+  	<center><h1><%= @client.name %></h1></center>
+</div>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">ActiveSearches (<%= @searches.count %>)</a></li>

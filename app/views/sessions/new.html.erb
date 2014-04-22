@@ -1,16 +1,15 @@
 <% provide(:title, "Sign in") %>
 <h1>Sign In</h1>
-  <%= simple_form_for(:session, url: sessions_path) do |f| %>
-	    <%= f.input :email, :wrapper => :prepend, :label => false do %>
-	    <%= content_tag :span, "Email", :class => "add-on" %>
-	    <%= f.input_field :email %>
+<%= simple_form_for(:session, url: sessions_path) do |f| %>
+      <%= f.input :email, :wrapper => :prepend, :label => false do %>
+      <%= content_tag :span, "Email", :class => "add-on" %>
+      <%= f.input_field :email %>
     <% end %>
-	    <%= f.input :password, :wrapper => :prepend, :label => false do %>
-	    <%= content_tag :span, "Password", :class => "add-on" %>
-	    <%= f.input_field :password %>
+      <%= f.input :password, :wrapper => :prepend, :label => false do %>
+      <%= content_tag :span, "Password", :class => "add-on" %>
+      <%= f.input_field :password %>
     <% end %>
     <div class="well">
-    	<%= f.button :submit, "Sign In", class: "btn btn-primary" %> New user? <%= link_to "Sign up now!", signup_path %>
-  		<% end %>
-  	</div>
-  
+      <%= f.button :submit, "Sign In", class: "btn btn-primary" %> New user? <%= link_to "Sign up now!", signup_path %>
+      <% end %>
+    </div>

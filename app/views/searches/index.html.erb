@@ -1,5 +1,7 @@
 <% provide(:title, 'All Searches') %>
-<h1>Our Searches</h1>
+<div class="well">
+  <center><h1>All Searches</h1></center>
+</div>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Open Searches (<%= @searches.count %>)</a></li>
@@ -11,6 +13,7 @@
 				<thead>
 					<th>Client</th>
 					<th>Position</th>
+					<th>Fee</th>
 				</thead>
 				<tbody>
 					<%= render @searches %>
@@ -22,6 +25,7 @@
 				<thead>
 					<th>Client</th>
 					<th>Position</th>
+					<th>Fee</th>
 				</thead>
 				<tbody>
 					<%= render @closed %>

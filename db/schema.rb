@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216173423) do
+ActiveRecord::Schema.define(version: 20140217171043) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20140216173423) do
     t.datetime "updated_at"
     t.boolean  "closed",     default: false
     t.datetime "close_date"
+    t.integer  "fee"
+    t.boolean  "split",      default: false
   end
 
   add_index "searches", ["client_id"], name: "index_searches_on_client_id"

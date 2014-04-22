@@ -1,7 +1,6 @@
 <tr>
   <td><%= link_to search.client.name, search.client %></td>
   <td><%= link_to search.position, search %></td>
-  <td><% if current_user.partner? %>
-     <%= link_to "delete", search, method: :delete,
-                                  data: { confirm: "You sure?" } %><% end %>
+  <td><%= search.fee %></td>
+
 </tr>
